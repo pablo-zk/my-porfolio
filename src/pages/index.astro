@@ -1,0 +1,30 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Hero from "@/components/Hero.astro"
+import Experiencia from '@/components/Experiencia.astro';
+import Proyectos from "@/components/Proyectos.astro"
+import SectionContainer from '@/components/SectionContainer.astro';
+---
+
+<Layout 
+	title="Porfolio de Pablo Zúñiga - Desarrollador y programador web"
+	description='Porfolio de Pablo Zúñiga desarrollador de software con 2 años de experiencia. Muchas ganas de seguir aprendiendo y mejorar en todas las habilidades de un buen programador'
+	>
+	<main class="px-4">
+		<SectionContainer class="py-28 md:py-36" id="sobre-mi">
+			<Hero>
+				</slot>
+			</Hero>
+		</SectionContainer>
+		
+		<div class="space-y-24">
+			<SectionContainer id="experiencia" title="Experiencia laboral">
+				<Experiencia />
+			</SectionContainer>
+		
+			<SectionContainer id="proyectos" title="Proyectos">
+				<Proyectos />
+			</SectionContainer>
+		</div>
+	</main>
+</Layout>

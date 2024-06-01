@@ -1,0 +1,28 @@
+---
+import ExperienciaItem from "./ExperienciaItem.astro";
+
+
+const EXPERIENCIA = [
+  {
+    fechaDesde: "Marzo 2022",
+    fechaHasta: "Ahora",
+    titulo: "Desarrollador Full Stack",
+    descripcion: "Desarrollo del sistema de gestión procesal Avantius, utilizando tecnologías como Angular JS, .NET Core, C#, SQL Server y muchas más. Organización de tareas y equipos siguiendo metodologías ágiles, SAFE Scrum. Implementación de buenas prácticas de desarrollo y testing. Mantenimiento y mejora continua de la aplicación.",
+    empresa: "Tracasa Instrumental",
+    empresaLink: "https://itracasa.es/",
+    link:"https://itracasa.es/proyectos/justicia/"
+  }
+];
+
+---
+
+
+<ol class="relative border-s border-gray-200 dark:border-gray-700">                  
+    {EXPERIENCIA.map((experiencia) => (
+         <li class="mb-10 ms-4">
+            <ExperienciaItem {...experiencia} />
+         </li>
+        )) 
+    }
+</ol>
+

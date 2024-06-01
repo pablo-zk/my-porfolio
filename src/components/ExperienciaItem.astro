@@ -1,0 +1,31 @@
+---
+import SocialPill from './SocialPill.astro';
+import SaberMasIcon from './icons/SaberMasIcon.astro';
+
+interface Props {
+  titulo: string;
+  descripcion: string;
+  empresa: string;
+  empresaLink: string;
+  fechaDesde: string;
+  fechaHasta: string;
+  link?: string;
+}
+
+const { titulo, descripcion, empresa, empresaLink, fechaDesde, fechaHasta, link } = Astro.props;
+
+
+---
+
+<div class="absolute w-3 h-3 bg-cyan-400 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-cyan-400"></div>
+<time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500" datetime = "AAAA-MM">{fechaDesde}</time>
+<span class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"> - </span>
+<time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500" datetime = "AAAA-MM">{fechaHasta}</time>
+<h3 class="mt-2 text-lg font-semibold text-gray-900 dark:text-white">{titulo}&nbsp;-&nbsp;<a href={empresaLink} class="hover:text-cyan-400 underline transition">{empresa}</a></h3>
+<p class="mt-2 mb-4 text-base font-normal text-gray-500 dark:text-gray-400">{descripcion}</p>
+{link && (
+    <SocialPill href={link}>
+        Saber más
+        <SaberMasIcon />
+    </SocialPill>
+)}

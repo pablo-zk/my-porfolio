@@ -1,0 +1,40 @@
+---
+const personalImageAlt = "Pablo Zúñiga Sola"
+import Badge from "@/components/Badge.astro"
+import LinkedInIcon from "@/components/icons/LinkedIn.astro"
+import MailIcon from "@/components/icons/Mail.astro"
+import SocialPill from "@/components/SocialPill.astro"
+import GitHub from "./icons/GitHub.astro"
+---
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-16 sm:gap-4 justify-center items-center">
+    <div class="max-w-lg  text-center sm:text-left">
+        <h1 class="text-3xl font-bold tracking-tight text-gray-800 sm:text-4xl dark:text-white">
+            ¡Hola!, soy Pablo Zúñiga
+        </h1>
+        <p class="mt-6 text-md text-gray-800 dark:[&>strong]:text-cyan-400 [&>strong]:text-cyan-600 [&>strong]:font-semibold dark:text-gray-300">
+            Técnico superior en <strong>desarrollado de software</strong>. Me considero una persona cooperativa, organizada y con ganas de aprender y mejorar. De ahí mi interés por formarme continuamente y realizar proyectos con los que potenciar mis conocimientos técnicos y habilidades prácticas.
+        </p>
+        <nav class="flex flex-wrap gap-4 mt-8 justify-center sm:justify-start">
+            <SocialPill href="mailto:pablozunigasola@gmail.com">
+                <MailIcon class="size-4" />
+                Contáctame
+            </SocialPill>
+            <SocialPill href="https://linkedin.com/in/pablo-zuniga-sola">
+                <LinkedInIcon class="size-4" />
+                LinkedIn
+            </SocialPill>
+            <SocialPill href="https://github.com/pablo-zk">
+                <GitHub class="size-4" />
+                GitHub
+            </SocialPill>
+        </nav>
+    </div>
+    <div class="flex justify-center items-center">
+        <img
+          class="rounded-full shadow-lg size-72 ring-1 ring-cyan-400 min-w-72 min-h-72"
+          src="/pablozuniga.webp"
+          alt={personalImageAlt}
+        />
+      </div>
+  </div>

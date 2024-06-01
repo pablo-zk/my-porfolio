@@ -1,0 +1,125 @@
+---
+import GitHub from "./icons/GitHub.astro"
+import PHP from "./icons/PHP.astro"
+import HTML from "./icons/HTML.astro"
+import Android from "./icons/Android.astro"
+import JS from "./icons/JavaScript.astro"
+import SASS from "./icons/SASS.astro"
+import Postgres from "./icons/Postgres.astro"
+import Link from "./icons/Link.astro"
+import Ionic from "./icons/Ionic.astro"
+import SocialPill from "./SocialPill.astro"
+
+const TAGS = {
+  PHP: {
+    name: "PHP",
+    class: "bg-black text-white",
+    icon: PHP,
+  },
+  Postgres: {
+    name: "Postgres",
+    class: "bg-[#848484] text-white",
+    icon: Postgres,
+  },
+  Ionic: {
+    name: "Ionic TS",
+    class: "bg-[#003159] text-white",
+    icon: Ionic,
+  },
+  JS: {
+    name: "JavaScript",
+    class: "bg-[#f7df1e] text-black",
+    icon: JS,
+  },
+  HTML: {
+    name: "HTML",
+    class: "bg-[#e34c26] text-white",
+    icon: HTML,
+  },
+  SASS: {
+    name: "SASS",
+    class: "bg-[#CF649A] text-white",
+    icon: SASS,
+  },
+  ANDROID: {
+    name: "Android",
+    class: "bg-[#78C257] text-white",
+    icon: Android,
+  },
+}
+const PROJECTS = [
+  {
+    title: "What2Watch - Recomendaciones de películas y series",
+    description:
+      "Aplicación con la que puedes encontrar información de todas las películas y series en las que estes pensando, y crear listas personalizadas para guardar y mantener tu contenido favorito, o no, bien organizado. Está información se recoge gracias a la API de TMBD.",
+    github: "https://github.com/pablo-zk/what2watch",
+    image: "/projects/w2w.webp",
+    tags: [TAGS.Ionic, TAGS.PHP, TAGS.Postgres],
+  },{
+    title: "Weather App - Aplicación del clima",
+    description:
+      "Aplicación con la que puedes encontrar información del clima de cualquier ciudad del mundo, y ver la información de los próximos 7 días. Está información se recoge gracias a la API de OpenWeather.",
+    image: "/projects/weather.webp",
+    github: "https://github.com/pablo-zk/weather-pablo-zuniga",
+    tags: [TAGS.HTML, TAGS.JS,TAGS.SASS],
+    link: "https://pablo-zk.github.io/weather-pablo-zuniga/index.html"
+  },{
+    title: "RutaVientos",
+    description:
+      "Aplicación para el uso compartido de vehiculos entre alumnos del instituto Cuatrovientos de Pamplona. El principal objetivo de esta app es ofrecer transporte a los alumnos para reducir el numero de desplazamientos y con esto el impacto medioambiental.",
+    image: "/projects/RutaVientos.webp",
+    github: "https://github.com/pablo-zk/RutaVientos",
+    tags: [TAGS.ANDROID]
+  }
+]
+---
+
+<div class="flex flex-col gap-y-16">
+  {
+    PROJECTS.map(({ image, title, description, tags, link, github }) => (
+    <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+      <div class="w-full md:w-1/2">
+        <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-300 dark:lg:border-gray-800 lg:hover:border-gray-600 lg:hover:bg-gray-800/50">
+          <img alt={title} class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="lazy" src={image} />
+        </div>
+      </div>
+
+      <div class="w-full md:w-1/2 md:max-w-lg">
+        <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+          {title}
+        </h3>
+        <div class="flex flex-wrap mt-2">
+          <ul class="flex flex-row mb-2 gap-x-2">
+              {tags.map((tag) => (
+                <li>
+                  <span
+                    class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                  >
+                    <tag.icon class="size-4" />
+                    {tag.name}
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+          <div class="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
+          <footer class="flex items-end justify-start mt-4 gap-x-4">
+              {github && (
+                <SocialPill href={github}>
+                  <GitHub class="size-6" />
+                  Code
+                </SocialPill>
+              )}
+              {link && (
+                <SocialPill href={link}>
+                  <Link class="size-4" />
+                  Preview
+                </SocialPill>
+              )}
+            </footer>
+        </div>
+      </div>
+    </article>
+    ))
+  }
+</div>
